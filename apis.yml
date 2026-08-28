@@ -1,28 +1,155 @@
 aid: otis-worldwide
 name: "Otis Worldwide"
 specificationVersion: '0.23'
+description: >-
+  Otis Worldwide is the world's leading manufacturer, installer and servicer of elevators, escalators
+  and moving walkways, serving customers in more than 200 countries and territories. Alongside the
+  equipment business Otis runs a connected-building software portfolio — Otis ONE IoT remote
+  monitoring, the Compass destination-entry dispatch platform, eCall and eView — and exposes it to
+  integrators through the Otis Developer Portal at developers.otis.com. Two named API products sit
+  behind that portal: the Otis Integrated Dispatch (OID) API, a secure-websocket, OAuth 2.0
+  client-credentials interface that lets service robots and third-party applications place hall,
+  car and destination calls and read live car position, direction, load, door status and car mode;
+  and the Building Management API, which streams elevator and escalator availability, traffic and
+  maintenance data into BMS, BAS and SCADA platforms and accepts operational commands. Otis also
+  publishes an eCall Pro API. The developer portal is an Azure API Management instance and its API
+  catalogue is visible only to signed-in, subscribed developers, so no public OpenAPI, AsyncAPI or
+  other machine-readable contract is reachable anonymously.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/otis-worldwide.png
+url: https://raw.githubusercontent.com/api-evangelist/otis-worldwide/refs/heads/main/apis.yml
+created: '2026-03-21'
+modified: '2026-08-28'
+tags:
+  - Elevators
+  - Escalators
+  - Building Management
+  - Smart Buildings
+  - Internet of Things
+  - Robotics
+  - Building Automation
+  - Elevator Dispatch
+  - Industrial
+  - Manufacturing
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
+    url: https://apievangelist.com
 accessModel:
   pricing: unknown
-  onboarding: unknown
+  onboarding: request
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/otis-worldwide.png
-url: 
-  https://raw.githubusercontent.com/api-evangelist/otis-worldwide/refs/heads/main/apis.yml
-modified: '2026-03-21'
-apis: []
+  label: Gated
+  confidence: medium
+  source:
+    - https://developers.otis.com/signup
+    - https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+  generated: '2026-08-28'
+  method: searched
+apis:
+  - name: Otis Integrated Dispatch (OID) API
+    description: >-
+      Cloud-based or on-premise API for integrating service robots and third-party applications with
+      Otis elevators. Otis's own service-robot data sheet lists the available operations as: place a
+      hall call, place a car call, place a destination call, get car and door information (car
+      position, direction of travel, load, door status, car mode), building and elevator metadata,
+      and authentication. Transport is secure websockets over TLS 1.2 with OAuth 2.0 client
+      credentials, and an API sandbox environment is offered for pre-deployment testing.
+    humanURL: https://www.otis.com/en/us/products-services/products/otis-integrated-dispatch
+    baseURL: https://api.otis.com
+    tags:
+      - Elevator Dispatch
+      - Robotics
+      - Building Automation
+      - WebSockets
+    properties:
+      - type: DeveloperPortal
+        url: https://developers.otis.com
+      - type: Authentication
+        url: authentication/otis-worldwide-authentication.yml
+      - type: Sandbox
+        url: sandbox/otis-worldwide-sandbox.yml
+      - type: RateLimits
+        url: rate-limits/otis-worldwide-rate-limits.yml
+  - name: Otis Building Management API
+    description: >-
+      API that moves elevator and escalator data into Building Management Systems (BMS), Building
+      Automation Systems (BAS) and SCADA platforms — real-time equipment status, notifications and
+      alerts, waiting-time and call analytics, trip origin and destination — and accepts operational
+      commands including hall calls, car calls, operating modes, alarms, scheduled floor lock-outs
+      and emergency modes such as security lockdown.
+    humanURL: https://www.otis.com/en/us/building-management-api
+    baseURL: https://api.otis.com
+    tags:
+      - Building Management
+      - Smart Buildings
+      - Internet of Things
+    properties:
+      - type: DeveloperPortal
+        url: https://developers.otis.com
+      - type: Authentication
+        url: authentication/otis-worldwide-authentication.yml
 common:
+  - type: DomainSecurity
+    url: security/otis-worldwide-domain-security.yml
+  - type: Website
+    url: https://www.otis.com
   - type: LinkedIn
     url: https://www.linkedin.com/company/otis_elevators
-  - type: Website
-    url: https://www.otis-worldwide.com
-description: >-
-  Otis Worldwide is the world's leading manufacturer, installer, and servicer of elevators,
-  escalators, and moving walkways, serving customers in more than 200 countries and
-  territories.
+  - type: DeveloperPortal
+    url: https://developers.otis.com
+  - type: APIReference
+    url: https://developers.otis.com/apis
+  - type: GettingStarted
+    url: https://developers.otis.com/Started
+  - type: SignUp
+    url: https://developers.otis.com/signup
+  - type: Support
+    url: https://www.otis.com/en/us/contact-us
+  - type: Blog
+    url: https://www.otis.com/en/us/news
+  - type: TermsOfService
+    url: https://www.otis.com/en/us/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.otis.com/en/us/privacy-policy
+  - type: Roadmap
+    url: https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+  - type: Authentication
+    url: authentication/otis-worldwide-authentication.yml
+  - type: Sandbox
+    url: sandbox/otis-worldwide-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/otis-worldwide-rate-limits.yml
+  - type: Plans
+    url: plans/otis-worldwide-plans-pricing.yml
+  - type: Conventions
+    url: conventions/otis-worldwide-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/otis-worldwide-lifecycle.yml
+  - type: Conformance
+    url: conformance/otis-worldwide-conformance.yml
+  - type: LLMsTxt
+    url: llms/otis-worldwide-llms.txt
+x-enrichment:
+  date: '2026-08-28'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    developers.otis.com is an Azure API Management developer portal whose anonymous API catalogue
+    returns count 0 — the reference, and any machine-readable spec behind it, require a portal
+    account plus a subscribed API product, and Otis's own BMS API Appendix limits the licence to
+    sites where Otis holds the elevator maintenance contract.
+  evidence:
+    - url: >-
+        https://apim-apip-prod-naa-7yxcbl5fhzara.management.azure-api.net/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ApiManagement/service/apim-apip-prod-naa-7yxcbl5fhzara/apis?api-version=2021-08-01
+      status: 200
+    - url: https://developers.otis.com/openapi.json
+      status: 404
+    - url: https://api.otis.com/openapi.json
+      status: 404
+  checked: '2026-08-28'

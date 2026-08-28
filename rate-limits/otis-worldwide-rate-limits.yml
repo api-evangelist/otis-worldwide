@@ -1,0 +1,36 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+rate_limits:
+  slug: otis-worldwide
+  limit_count: 0
+  documented: partial
+  summary: >-
+    Otis makes one explicit, published statement about throttling on the Otis Integrated Dispatch
+    API — "Traffic Throttling: None" — in the API SECURITY block of its service-robot data sheet.
+    That is a stated absence of a limit, not a documented limit, so limit_count is 0. No numeric
+    quota, window, burst allowance, rate-limit response header or 429 behaviour is published for
+    the OID API, the Building Management API or the eCall Pro API anywhere on a public Otis surface.
+  limits: []
+  headers:
+    published: false
+    observed: false
+    note: >-
+      No X-RateLimit-*, RateLimit-* or Retry-After header set is documented. The APIs are gated
+      behind a subscription key, so no live unauthenticated response could be observed to probe for
+      runtime headers. The gateway host api.otis.com answers unauthenticated requests with an Azure
+      API Management 404 envelope only.
+  exhaustion_status: null
+  platform_note: >-
+    The developer portal is Microsoft Azure API Management, which supports per-subscription rate-limit
+    and quota policies. Whether Otis applies any such policy is not published; the data sheet's
+    "Traffic Throttling: None" is the only statement on record.
+  evidence:
+    - url: >-
+        https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+      status: 200
+      note: '"Traffic Throttling: None" — API SECURITY block.'
+    - url: https://api.otis.com/
+      status: 404
+      note: Azure API Management gateway envelope; no rate-limit headers returned.

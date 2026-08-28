@@ -1,0 +1,70 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+authentication:
+  slug: otis-worldwide
+  name: Otis Worldwide
+  summary: >-
+    Otis does not publish a machine-readable contract, so this profile is assembled from the
+    company's own published API data sheet and developer-portal pages rather than derived from an
+    OpenAPI securitySchemes block. Two layers stack: an Azure API Management subscription key
+    issued when a developer subscribes to an API product in the Otis Developer Portal, and OAuth 2.0
+    client-credentials tokens minted from a client-id / client-secret pair for the API itself.
+  docs:
+    - url: https://developers.otis.com/signup
+      note: Developer account sign-up; carries the Terms & Conditions for use of the Otis Developer Portal.
+      status: 200
+    - url: https://developers.otis.com/apis
+      note: >-
+        Portal API catalogue. Anonymous callers see zero APIs — the reference, including the
+        authoritative auth reference, requires a signed-in developer account with a subscribed
+        API product.
+      status: 200
+  schemes:
+    - id: otis-portal-subscription-key
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      applies_to: All APIs published through the Otis Developer Portal (Azure API Management)
+      description: >-
+        Otis's service-robot data sheet states "Subscribe to the API product to request sandbox
+        access. A subscription key will be required for further operations." The portal is a
+        Microsoft Azure API Management instance (config.json managementApiUrl
+        apim-apip-prod-naa-7yxcbl5fhzara.management.azure-api.net), whose standard subscription-key
+        header is Ocp-Apim-Subscription-Key. The header NAME is inferred from the platform, not
+        stated by Otis; the requirement for a subscription key is stated by Otis.
+      confidence: medium
+      evidence:
+        - >-
+          "A subscription key will be required for further operations." — Otis Integrated Dispatch
+          Data Sheet for Service Robot Providers, GET STARTED section.
+        - https://developers.otis.com/config.json (HTTP 200, Azure APIM portal configuration)
+    - id: otis-oid-oauth2-client-credentials
+      type: oauth2
+      flow: clientCredentials
+      applies_to: Otis Integrated Dispatch (OID) API
+      description: >-
+        "Client Authentication: Via client-id & client-secret. Authorization: OAuth 2.0 – client
+        credentials flow." Otis publishes the flow but not the token endpoint URL, the scope names,
+        or the token lifetime; all three are inside the gated portal reference.
+      token_endpoint: null
+      scopes: []
+      confidence: high
+      evidence:
+        - >-
+          "API SECURITY — API Protocol: Secure Websockets; Encryption: TLS 1.2, Data encryption at
+          rest and in transit; Client Authentication: Via client-id & client-secret; Authorization:
+          OAuth 2.0 – client credentials flow; Traffic Throttling: None" — Otis Integrated Dispatch
+          Data Sheet for Service Robot Providers.
+  transport:
+    protocol: Secure WebSockets
+    tls: TLS 1.2
+    encryption_at_rest: true
+    note: >-
+      Otis states all API communication runs over an encrypted channel and all stored data is
+      encrypted at rest.
+  gaps:
+    - No OAuth 2.0 authorization-server metadata is published; /.well-known/oauth-authorization-server 404s on every Otis host probed.
+    - No token endpoint, scope list, or token lifetime is published outside the authenticated portal.
+    - No OpenAPI or AsyncAPI document is published, so securitySchemes cannot be derived.

@@ -1,0 +1,50 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+sandbox:
+  slug: otis-worldwide
+  available: true
+  access: gated
+  summary: >-
+    Otis publishes an API sandbox / simulation-and-test environment for the Otis Integrated Dispatch
+    API so service-robot providers can test and configure robots against a simulated elevator before
+    any hardware is installed on site. Access is not self-serve: a developer signs up for a portal
+    account and then subscribes to the API product to request sandbox access.
+  environments:
+    - name: OID API sandbox
+      purpose: >-
+        Test and configure service robots for elevator use before deployment on-site; Otis states it
+        may even eliminate the need for the integrator to install their own integration hardware.
+      access_path:
+        - Sign up for an Otis developer account at https://developers.otis.com/signup
+        - View the API documentation in the portal
+        - Subscribe to the API product to request sandbox access
+        - A subscription key is issued and required for further operations
+      self_serve: false
+      credentials_published: false
+    - name: Compass Simulation and Test Environment
+      purpose: >-
+        Named in the Otis eCall Pro API and OID API Appendix as part of the licensed Otis Products
+        and Software, alongside the Compass Destination Entry System and the developer-portal sample
+        code.
+      access_path:
+        - Covered by an executed Otis Digital Services Rider
+      self_serve: false
+      credentials_published: false
+  test_values:
+    published: false
+    note: >-
+      Otis publishes no test credentials, test identifiers, simulated car IDs or fixture data on any
+      public page. Nothing was invented here — the sandbox is real and documented, its test data is not.
+  sample_code:
+    published: false
+    note: >-
+      "Developer portal sample code" is named in both Otis API appendices as licensed material, so
+      sample code exists inside the portal; it is not reachable anonymously.
+  evidence:
+    - url: https://developers.otis.com/signup
+      status: 200
+    - url: https://developers.otis.com/apis
+      status: 200
+      note: Anonymous API catalogue is empty; sandbox reference sits behind the account wall.

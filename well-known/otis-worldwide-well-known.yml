@@ -1,0 +1,95 @@
+generated: '2026-08-28'
+method: probed
+source: live HTTPS probe of each Otis host on 2026-08-28
+well_known:
+  slug: otis-worldwide
+  summary: >-
+    Every RFC/convention well-known path was probed on all four Otis hosts — the corporate site,
+    the API gateway, and both Azure API Management developer portals. Every one returned 404.
+    No WellKnown or SecurityTxt pointer is emitted in apis.yml: this file records a measured
+    absence, and a pointer would assert that Otis serves a surface it does not serve.
+  documents_found: 0
+hosts:
+  - host: www.otis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+  - host: api.otis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+  - host: developers.otis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+  - host: developerstudio.otis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+notes:
+  - Agent-card probes (/.well-known/agent-card.json and the legacy /.well-known/agent.json) also returned 404 on every host; no a2a/ artifact was written.
+  - developers.otis.com and developerstudio.otis.com return 404 even for /robots.txt, which is the shape of an Azure APIM managed developer portal serving only its published SPA routes.

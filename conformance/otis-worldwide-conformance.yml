@@ -1,0 +1,132 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+conformance:
+  slug: otis-worldwide
+  summary: >-
+    Only one cross-cutting standard is declared by Otis for its APIs: OAuth 2.0 client credentials,
+    stated plainly in the Otis Integrated Dispatch data sheet. Everything else is recorded as not
+    conformant / not declared, with the probe that established it. Nothing was inferred from the
+    product category.
+  standards:
+    - id: oauth2
+      name: OAuth 2.0 (RFC 6749) — client credentials grant
+      conforms: true
+      evidence:
+        statement: '"Authorization: OAuth 2.0 – client credentials flow" — OID Data Sheet for Service Robot Providers, API SECURITY block.'
+        url: >-
+          https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+      note: >-
+        The grant is declared. The authorization-server metadata that would let a client discover it
+        automatically is not published — see the oauth-authorization-server probe below.
+    - id: rfc8414
+      name: OAuth 2.0 Authorization Server Metadata
+      conforms: false
+      evidence:
+        probed:
+          - url: https://developers.otis.com/.well-known/oauth-authorization-server
+            status: 404
+          - url: https://www.otis.com/.well-known/oauth-authorization-server
+            status: 404
+    - id: oidc
+      name: OpenID Connect Discovery
+      conforms: false
+      evidence:
+        probed:
+          - url: https://developers.otis.com/.well-known/openid-configuration
+            status: 404
+          - url: https://www.otis.com/.well-known/openid-configuration
+            status: 404
+    - id: rfc9457
+      name: RFC 9457 Problem Details for HTTP APIs
+      conforms: false
+      evidence:
+        note: >-
+          No error catalogue or application/problem+json declaration is published. The only
+          anonymously observable error body is the Azure API Management gateway default.
+    - id: rfc9116
+      name: RFC 9116 security.txt
+      conforms: false
+      evidence:
+        probed:
+          - url: https://www.otis.com/.well-known/security.txt
+            status: 404
+          - url: https://developers.otis.com/.well-known/security.txt
+            status: 404
+    - id: rfc8594
+      name: RFC 8594 Sunset HTTP header
+      conforms: false
+      evidence:
+        note: No deprecation or sunset policy is published. See lifecycle/otis-worldwide-lifecycle.yml.
+    - id: openapi
+      name: OpenAPI Specification
+      conforms: false
+      evidence:
+        probed:
+          - url: https://developers.otis.com/openapi.json
+            status: 404
+          - url: https://developers.otis.com/swagger.json
+            status: 404
+          - url: https://api.otis.com/openapi.json
+            status: 404
+    - id: asyncapi
+      name: AsyncAPI
+      conforms: false
+      evidence:
+        note: >-
+          The OID API is a websocket streaming surface — the natural home for an AsyncAPI document —
+          but none is published. Recorded as a gap, not fabricated.
+    - id: tls12
+      name: TLS 1.2 or better on all API communication
+      conforms: true
+      evidence:
+        statement: >-
+          "All API communication is over an encrypted channel. All stored data is encrypted at
+          rest." / "Encryption: TLS 1.2, Data encryption at rest and in transit" — OID data sheet.
+        url: >-
+          https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+      note: Live TLS observations for each host are in security/otis-worldwide-domain-security.yml.
+  domain_standards:
+    market: Elevator, escalator and building-automation integration
+    declared: false
+    summary: >-
+      This market does have integration standards a vertical-transportation API could speak — BACnet
+      and its BACnet/WS web-services profile (ASHRAE 135) and Modbus are the lingua franca of
+      building automation, and OPC UA appears in industrial deployments. Otis's own API material
+      names none of them: the Building Management API is described as pushing data INTO a BMS/BAS/
+      SCADA system, and the OID API as a proprietary secure-websocket interface, with no BACnet
+      object model, BACnet/WS surface, Modbus register map or OPC UA information model declared
+      anywhere public.
+    candidates_probed:
+      - id: bacnet-ws
+        name: BACnet/WS (ASHRAE 135 Annex W web services)
+        declared: false
+      - id: bacnet
+        name: BACnet (ASHRAE 135)
+        declared: false
+      - id: modbus
+        name: Modbus
+        declared: false
+      - id: opcua
+        name: OPC UA
+        declared: false
+      - id: haystack
+        name: Project Haystack building-data tagging
+        declared: false
+    note: >-
+      REWARD-ONLY check. Nothing is asserted here — this records that the standards were looked for
+      in Otis's published API material and are absent from it. Whether an Otis integration speaks
+      BACnet at the equipment layer is outside what the API documentation states.
+  compliance_certifications:
+    published: false
+    note: >-
+      No trust centre, no SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP attestation and no named
+      certification is published for the API platform. Otis publishes corporate ethics-and-compliance
+      and sustainability material, which is not an API or information-security certification, so no
+      Compliance pointer is emitted.
+    probed:
+      - url: https://trust.otis.com
+        status: '<no response>'
+      - url: https://www.otis.com/en/us/cybersecurity
+        status: 404

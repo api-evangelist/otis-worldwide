@@ -1,0 +1,120 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+conventions:
+  slug: otis-worldwide
+  summary: >-
+    Cross-cutting runtime semantics for the Otis APIs, assembled from Otis's own published data
+    sheets, product pages and developer-portal pages. No OpenAPI or AsyncAPI is published, so
+    nothing here is derived from a contract; every field is either a published statement or an
+    honest unknown.
+  interface_style:
+    primary: WebSocket
+    note: >-
+      "API Protocol: Secure Websockets" for the Otis Integrated Dispatch API. This is a persistent
+      bidirectional stream rather than a request/response REST surface, which is why the usual REST
+      conventions below are largely not applicable rather than merely undocumented.
+    gateway: Azure API Management (api.otis.com answers with the APIM 404 envelope)
+  auth_style:
+    model: OAuth 2.0 client credentials over an Azure APIM subscription key
+    reference: authentication/otis-worldwide-authentication.yml
+  idempotency:
+    supported: unknown
+    header: null
+    scope: null
+    retention: null
+    note: >-
+      Nothing published. The OID write surface — place a hall call, place a car call, place a
+      destination call — is exactly the kind of operation that needs a replay guard, and a robot
+      reconnecting a dropped websocket is a realistic double-fire path, but Otis documents no
+      idempotency key, no request-id de-duplication and no retry guidance on any public page.
+  pagination:
+    applicable: false
+    note: Streaming websocket surface; no paged collection endpoints are published.
+  field_expansion:
+    supported: unknown
+  metadata:
+    supported: true
+    note: >-
+      "Metadata about the building and elevators" is listed as an available API in the OID data
+      sheet. Its shape is not published.
+  request_id_tracing:
+    supported: unknown
+    note: No correlation/trace header is documented.
+  versioning:
+    scheme: unknown
+    note: >-
+      No version scheme, no version header, no dated release channel and no changelog is published
+      on any public Otis surface.
+    reference: lifecycle/otis-worldwide-lifecycle.yml
+  error_envelope:
+    published: false
+    format: unknown
+    note: >-
+      No error reference, no error-code registry and no RFC 9457 problem+json declaration is
+      published. The only error body observable anonymously is the Azure API Management gateway
+      default, `{"statusCode": 404, "message": "Resource not found"}`, which is platform boilerplate
+      and not an Otis error contract.
+  rate_limit_signalling:
+    published: false
+    statement: '"Traffic Throttling: None" (OID data sheet)'
+    reference: rate-limits/otis-worldwide-rate-limits.yml
+  dry_run_mode:
+    supported: unknown
+    note: >-
+      Not documented as a per-request mode. Otis instead offers a whole separate sandbox /
+      simulation-and-test environment, which serves the rehearsal purpose at the environment level
+      rather than the call level. See sandbox/otis-worldwide-sandbox.yml.
+  reversibility:
+    grade: undocumented
+    write_surface: true
+    summary: >-
+      The Otis Integrated Dispatch and Building Management APIs both carry real, physical write
+      operations — placing hall, car and destination calls, setting operating modes, triggering
+      alarms, scheduling floor lock-outs and initiating emergency modes such as a security lockdown.
+      These move an elevator in a real building. Otis publishes no cancel, revoke, clear or undo
+      operation for any of them, and states no window inside which a placed call or an engaged mode
+      can be taken back.
+    operations:
+      - action: Place a hall call
+        reversal_operation: null
+        window: null
+        note: No cancel-call operation is published.
+      - action: Place a car call
+        reversal_operation: null
+        window: null
+        note: No cancel-call operation is published.
+      - action: Place a destination call
+        reversal_operation: null
+        window: null
+        note: No cancel-call operation is published.
+      - action: Set operational mode / alarm (Building Management API)
+        reversal_operation: null
+        window: null
+        note: >-
+          Modes are described as settable from the management system, which implies a mode can be
+          set back, but Otis publishes no named reverse operation and no bounded window. Recorded
+          as unknown rather than assumed.
+      - action: Emergency mode / security lockdown (Building Management API)
+        reversal_operation: null
+        window: null
+        note: >-
+          Highest-consequence published action. No documented release or expiry. An agent cannot
+          learn from public material whether a lockdown it initiates can be lifted through the same
+          API.
+      - action: Scheduled floor lock-out / priority call (Building Management API)
+        reversal_operation: null
+        window: null
+        note: >-
+          Described as scheduled ahead of time, which implies a cancel-before-execution path, but no
+          such operation is named publicly.
+    note: >-
+      NO WINDOW HAS BEEN ASSERTED ANYWHERE IN THIS FILE. Every window field is null because Otis
+      states none. The reversal semantics almost certainly exist inside the gated portal reference;
+      they are simply not public, and inventing one for an API that physically moves an elevator
+      would be the most dangerous possible fabrication in this catalogue.
+  gaps:
+    - No machine-readable contract of any kind is published (no OpenAPI, AsyncAPI, GraphQL SDL, WSDL or .proto).
+    - No error catalogue, no idempotency guidance, no reversal operations, no versioning policy.
+    - Every one of the above is likely documented inside developers.otis.com behind the account wall.

@@ -1,0 +1,79 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+lifecycle:
+  slug: otis-worldwide
+  summary: >-
+    Otis publishes a forward-looking feature roadmap for the Otis Integrated Dispatch API and an
+    automated monitoring story for the running service, but no version scheme, no changelog, no
+    deprecation or sunset policy, no SLA and no public status page.
+  versioning:
+    scheme: unknown
+    policy_url: null
+    note: No version scheme or version-negotiation mechanism is published.
+  changelog:
+    published: false
+    url: null
+    note: >-
+      No dated changelog, release-notes feed or "what's new" page exists on developers.otis.com or
+      on otis.com for any of the API products.
+  deprecation:
+    policy_published: false
+    url: null
+    sunset_header: unknown
+    deprecation_header: unknown
+    note: >-
+      No RFC 8594 Sunset/Deprecation header commitment and no deprecation policy is published. What
+      Otis does publish, in the BMS API Appendix, is a hard commercial termination condition: the
+      license runs "only for so long as Otis holds the elevator maintenance contract at such
+      Site(s)", and the developer-portal terms let Otis "terminate your access to the Portal and
+      revoke the license to the API at its sole discretion and without notice". That is a
+      termination clause, not a deprecation policy, and it is recorded here because it is the only
+      published statement about how API access ends.
+    termination_sources:
+      - https://www.otis.com/documents/d/otis-2/bms-api-5-10-2023-final
+      - https://developers.otis.com/signup
+  status_page:
+    published: false
+    url: null
+    probed:
+      - url: https://status.otis.com
+        status: '<no response>'
+        note: Host does not resolve / no connection.
+    note: >-
+      Otis markets "continuous, automated monitoring and issue diagnosis tools" and "automated,
+      real-time monitoring and issue diagnostic tools" as an internal operations capability for the
+      cloud-based products, but exposes no customer-facing status or incident-history page. No
+      StatusPage pointer is emitted, because a marketing claim about internal monitoring is not a
+      status page.
+  sla:
+    published: false
+    note: >-
+      No availability, latency or support-response SLA is published. The developer-portal terms
+      disclaim all warranties for portal and sandbox use; a commercial SLA, if any, would sit in the
+      separately executed API Agreement / Otis Digital Services Rider.
+  roadmap:
+    published: true
+    url: >-
+      https://www.otis.com/documents/256045/119472397/OID_Robot-Prodivers_Datasheet_InDesign_WHQ_English_Final.pdf/215d5e99-fd88-5502-aa1a-078c8c3b3eff?t=1655310590825
+    scope: Otis Integrated Dispatch API
+    horizon: near-term
+    verbatim_heading: 'UPCOMING FEATURES'
+    items:
+      - name: Load-factor integration
+        description: >-
+          For service robots designed to travel with passengers, load-factor settings are used to
+          ensure the dispatched elevator will have room for the robot to board safely.
+      - name: VIP call integration
+        description: >-
+          For service robots that need to travel alone or execute a high-priority or time-sensitive
+          task, VIP calls are used to ensure exclusive use of the elevator.
+    note: >-
+      This is a published roadmap statement in Otis's own words ("Our roadmap for near-term
+      enhancements is focused on deeper dispatch integration"), carried in a product data sheet
+      rather than on a roadmap page. It is undated.
+  deprecated_operations: []
+  gaps:
+    - No status page, no changelog, no deprecation policy, no SLA.
+    - No API version scheme is published, so a consumer cannot tell which version they are on.

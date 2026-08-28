@@ -1,0 +1,45 @@
+generated: '2026-08-28'
+method: searched
+source: https://www.otis.com/en/us/building-management-api
+plans:
+  slug: otis-worldwide
+  plan_count: 0
+  pricing_published: false
+  model: subscription
+  summary: >-
+    Otis sells its API access as a subscription attached to a digital-services plan, but publishes no
+    tier names, no prices, no currency, no included quota and no overage terms on any public page.
+    Both API product pages describe the same three-step motion — "Subscribe to a plan", "Install"
+    (Otis-owned hardware fitted by an Otis field engineer), "Monitor" — and route the buyer to a
+    sales mailbox rather than to a pricing table or a self-serve checkout.
+  tiers: []
+  related_service_tiers:
+    note: >-
+      The Otis ONE IoT service, which the API products sit on top of, is marketed in three named
+      tiers — Prime, Plus and Pro — on the Otis ONE product page. No price is published for any of
+      them, and they are equipment-service tiers rather than API plans, so they are recorded here as
+      context and not counted as API plans.
+    source: https://www.otis.com/en/us/products-services/otis-signature-service/otis-one
+    tiers: [Prime, Plus, Pro]
+  acquisition:
+    self_serve: false
+    developer_sandbox_free: unknown
+    sales_contacts:
+      - purpose: Otis Integrated Dispatch sales
+        email: sales-oid@otis.com
+      - purpose: Otis Integrated Dispatch support
+        email: support-oid@otis.com
+      - purpose: Building Management API sales
+        email: sales-bms@otis.com
+    prerequisite: >-
+      Otis's BMS API Appendix licenses the API only for so long as Otis holds the elevator
+      maintenance contract at the site, so API access is contractually tied to being an Otis
+      maintenance customer.
+  evidence:
+    - url: https://www.otis.com/en/us/building-management-api
+      status: 200
+    - url: https://www.otis.com/en/us/products-services/products/otis-integrated-dispatch
+      status: 200
+    - url: https://www.otis.com/documents/d/otis-2/bms-api-5-10-2023-final
+      status: 200
+      note: BMS API Appendix — license runs only while Otis holds the site maintenance contract.
