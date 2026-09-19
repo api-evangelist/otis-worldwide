@@ -35,6 +35,17 @@ tags:
   - Escalators
   - Building Management
   - Smart Buildings
+  - IoT
+  - Robotics
+  - Building Automation
+  - Elevator Dispatch
+  - Industrial
+  - Manufacturing
+tags_raw:
+  - Elevators
+  - Escalators
+  - Building Management
+  - Smart Buildings
   - Internet of Things
   - Robotics
   - Building Automation
@@ -73,6 +84,11 @@ apis:
       - Elevator Dispatch
       - Robotics
       - Building Automation
+      - WebSocket
+    tags_raw:
+      - Elevator Dispatch
+      - Robotics
+      - Building Automation
       - WebSockets
     properties:
       - type: DeveloperPortal
@@ -93,6 +109,10 @@ apis:
     humanURL: https://www.otis.com/en/us/building-management-api
     baseURL: https://api.otis.com
     tags:
+      - Building Management
+      - Smart Buildings
+      - IoT
+    tags_raw:
       - Building Management
       - Smart Buildings
       - Internet of Things
