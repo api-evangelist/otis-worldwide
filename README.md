@@ -1,4 +1,4 @@
-# Otis Worldwide (otis-worldwide)
+# Otis Worldwide
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,35 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Otis Worldwide is a Fortune 500 company. This repository captures the APIs, developer tools, and machine-readable API artifacts for Otis Worldwide.
+Otis Worldwide is the world's leading manufacturer, installer and servicer of elevators, escalators and moving walkways, serving customers in more than 200 countries and territories. Alongside the equipment business Otis runs a connected-building software portfolio — Otis ONE IoT remote monitoring, the Compass destination-entry dispatch platform, eCall and eView — and exposes it to integrators through the Otis Developer Portal at developers.otis.com. Two named API products sit behind that portal: the Otis Integrated Dispatch (OID) API, a secure-websocket, OAuth 2.0 client-credentials interface that lets service robots and third-party applications place hall, car and destination calls and read live car position, direction, load, door status and car mode; and the Building Management API, which streams elevator and escalator availability, traffic and maintenance data into BMS, BAS and SCADA platforms and accepts operational commands. Otis also publishes an eCall Pro API. The developer portal is an Azure API Management instance and its API catalogue is visible only to signed-in, subscribed developers, so no public OpenAPI, AsyncAPI or other machine-readable contract is reachable anonymously.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/otis-worldwide/refs/heads/main/apis.yml)
+**Areas:** Elevators · Escalators · Building Management · Smart Buildings · IoT · Robotics · Building Automation · Elevator Dispatch · Industrial · Manufacturing
 
-## Scope
+## Otis Worldwide on APIs.io
 
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Otis Worldwide is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/otis-worldwide/](https://apis.io/providers/otis-worldwide/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (2)
 
- - Fortune 500
+- [Otis Integrated Dispatch (OID) API](https://apis.io/apis/otis-worldwide/otis-integrated-dispatch-oid-api/) — Cloud-based or on-premise API for integrating service robots and third-party applications with Otis elevators. Otis's own service-robot data sheet lists the…
+- [Otis Building Management API](https://apis.io/apis/otis-worldwide/otis-building-management-api/) — API that moves elevator and escalator data into Building Management Systems (BMS), Building Automation Systems (BAS) and SCADA platforms — real-time…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-03-21
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (2)
 
-No public APIs have been documented yet. Contributions welcome.
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Otis Worldwide Authentication](https://apis.io/security/otis-worldwide/otis-worldwide-authentication/)
+- [Otis Worldwide Domain Security](https://apis.io/security/otis-worldwide/otis-worldwide-domain-security/)
 
-- [Website](https://www.otis-worldwide.com)
+#### Plans and pricing (1)
 
-## Maintainers
+Published plans, tiers and prices.
 
-**FN:** API Evangelist
+- [Otis Worldwide Plans Pricing](https://apis.io/plans/otis-worldwide/otis-worldwide-plans-pricing/)
 
-**Email:** info@apievangelist.com
+#### Rate limits (1)
+
+Published request limits.
+
+- [Otis Worldwide Rate Limits](https://apis.io/rate-limits/otis-worldwide/otis-worldwide-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.otis.com)
+- [Getting started](https://developers.otis.com/Started)
+- [API reference](https://developers.otis.com/apis)
+- [Sign up](https://developers.otis.com/signup)
+- [Support](https://www.otis.com/en/us/contact-us)
+- [Blog](https://www.otis.com/en/us/news)
+- [Terms of service](https://www.otis.com/en/us/terms-of-use)
+- [Privacy policy](https://www.otis.com/en/us/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 26.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 54.8 |
+| Access clarity | 34.2 |
+
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/otis-worldwide/](https://apis.io/providers/otis-worldwide/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Otis Worldwide: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/otis-worldwide/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
